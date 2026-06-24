@@ -1,1 +1,113 @@
+<!doctype html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#111827" />
+	<title>Date Finder</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<main class="app-shell">
+		<section class="hero card">
+			<div>
+				<span class="badge">Date planlayıcı</span>
+				<h1>Birlikte ne yapacağınıza karar verin, mekan önerileri alsın.</h1>
+				<p>
+					5 kısa soru cevaplayın. Site bütçeye, ruh haline ve zamana göre fikirler önerir;
+					ayrıca takvime ekleme, paylaşma ve hatırlatma seçenekleri sunar.
+				</p>
+			</div>
+
+			<div class="hero-stats">
+				<div class="stat">
+					<strong>5</strong>
+					<span>Soru</span>
+				</div>
+				<div class="stat">
+					<strong>3</strong>
+					<span>Öneri</span>
+				</div>
+				<div class="stat">
+					<strong>iPhone</strong>
+					<span>Takvim uyumlu</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="quiz card">
+			<div class="section-head">
+				<div>
+					<h2>Mini eşleştirme</h2>
+					<p>İkinize en uygun date türünü bulalım.</p>
+				</div>
+				<button id="resetBtn" class="ghost-btn" type="button">Sıfırla</button>
+			</div>
+
+			<div id="quizForm" class="quiz-grid"></div>
+
+			<label class="city-field">
+				<span>Şehir / semt</span>
+				<input id="cityInput" type="text" placeholder="Örn. Kadıköy, İstanbul" />
+			</label>
+
+			<div class="cta-row">
+				<button id="showBtn" class="primary-btn" type="button">Önerileri göster</button>
+				<button id="notifyBtn" class="secondary-btn" type="button">Hatırlatma izin ver</button>
+			</div>
+
+			<p class="note">
+				Takvim için .ics dosyası oluşturulur; iPhone’da açınca Calendar’a eklenebilir.
+				Bildirim desteği tarayıcı ve cihaz durumuna bağlıdır.
+			</p>
+		</section>
+
+		<section class="results card">
+			<div class="section-head">
+				<div>
+					<h2>Sonuçlar</h2>
+					<p id="resultHint">Soruları cevaplayıp önerileri görün.</p>
+				</div>
+				<div id="scorePill" class="pill">Hazır</div>
+			</div>
+
+			<div id="resultsGrid" class="results-grid"></div>
+
+			<div class="actions-row">
+				<button id="calendarBtn" class="secondary-btn" type="button" disabled>Takvime ekle</button>
+				<button id="shareBtn" class="secondary-btn" type="button" disabled>Paylaş</button>
+				<button id="randomBtn" class="ghost-btn" type="button" disabled>Rastgele eşleşme</button>
+			</div>
+		</section>
+	</main>
+
+		<template id="questionTemplate">
+		<article class="question-card">
+			<h3></h3>
+			<div class="option-list"></div>
+		</article>
+	</template>
+
+	<template id="resultTemplate">
+		<article class="result-card">
+			<div class="result-top">
+				<span class="result-icon"></span>
+				<div>
+					<h3></h3>
+					<p></p>
+				</div>
+			</div>
+			<ul></ul>
+			<div class="result-footer">
+				<a class="map-link" target="_blank" rel="noreferrer">Haritada ara</a>
+			</div>
+		</article>
+	</template>
+
+	<script src="script.js" defer></script>
+</body>
+</html>
 
